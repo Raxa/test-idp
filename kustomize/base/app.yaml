@@ -1,0 +1,22 @@
+---
+apiVersion: devopstoolkitseries.com/v1alpha1
+kind: AppClaim
+metadata:
+  annotations:
+    gitHubOrg: Raxa
+    gitHubRepo: test-idp
+  name: test-idp
+spec:
+  id: test-idp
+  compositionSelector:
+    matchLabels:
+      type: backend-db-aws
+      location: local
+  parameters:
+    namespace: development
+    image: docker.io/nundys/test-idp:latest
+    port: 8080
+    host: acme.com
+    db:
+      version: "13"
+      size: medium
